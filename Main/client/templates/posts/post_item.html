@@ -3,7 +3,12 @@
     <div class="col s12 m7">
       <div class="card">
         <div class="card-image">
-          <img src="http://placehold.it/350x150">
+            {{#if image.count}}
+            {{#each image}}<img src="{{this.url}}">    {{/each}}
+            {{else}}
+            <img src="http://placehold.it/350x150">
+            {{/if}}
+
           <span class="card-title">{{title}} - {{author}}</span>
         </div>
         <div class="card-content">

@@ -30,3 +30,7 @@ gildaspk:autoform-materialize
 useraccounts:materialize
 momentjs:moment
 allandequeiroz:materialize-comments
+okland:camera-ui
+cfs:standard-packages
+cfs:gridfs
+cfs:graphicsmagick

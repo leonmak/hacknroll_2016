@@ -7,7 +7,7 @@ Router.configure({
   },
   loadingTemplate:"loadingTemplate", // shows if still waiting on subscription
   waitOn: function(){
-    return [Meteor.subscribe('posts'), Meteor.subscribe('comments')];
+    return [Meteor.subscribe('posts'), Meteor.subscribe('comments'),Meteor.subscribe('images')];
   }
 });
 
@@ -19,7 +19,8 @@ Router.route('/posts/:_id', {
   name: 'postPage',
   data: function(){
     console.log(Posts.findOne(this.params._id));
-    return Posts.findOne(this.params._id); }
+    return Posts.findOne(this.params._id);
+  }
 });
 
 
@@ -43,7 +44,9 @@ AccountsTemplates.configureRoute('signUp');
 AccountsTemplates.configureRoute('verifyEmail');
 
 // insert routes
-Router.route('/submit', {name: 'postSubmit'});
+Router.route('/submit', {
+name: 'postSubmit',
+});
 
 var requireLogin = function() {
   if (! Meteor.user()) {

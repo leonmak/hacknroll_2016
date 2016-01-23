@@ -4,3 +4,8 @@ fieldset {
     margin: 0 2px;
     padding: 0.35em 0.625em 0.75em;
 }
+
+.file-field .btn, .file-field .btn-large {
+    height: 2.4rem;
+    line-height: 2.4rem;
+}

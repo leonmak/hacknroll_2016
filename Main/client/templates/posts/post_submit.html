@@ -1,5 +1,22 @@
 <template name="postSubmit">
   <h2>Add a deal!</h2>
+  {{#each photoURL}}
+  <div>
+    <img class="materialboxed" width="50%" src={{this.url}} />
+  </div>
+  {{/each}}
+  <div class="file-field input-field ">
+    <div class="btn">
+      <span>Upload Photo</span>
+      <input type="file" class="myFileInput">
+    </div>
+  </div>
+  <!-- <div id="photoFileUpload">
+
+  </div> -->
+
+<a class="waves-effect waves-light btn photo"><i class="material-icons left">camera</i>Take a photo!</a>
+<br>
   {{#autoForm collection="Posts" id="insertPostsForm" type="insert"}}
   <fieldset>
     {{> afQuickField name='title'}}

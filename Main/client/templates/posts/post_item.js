@@ -14,6 +14,11 @@ Template.postItem.helpers({
   },
   ownPost: function() {
     return this.userId === Meteor.userId();
+  },
+  image: function(){
+    var a = Images.find({_id:this.photoURL});
+console.log(a);
+return a;
   }
 });
 

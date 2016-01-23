@@ -51,8 +51,11 @@ var schema = new SimpleSchema({
         this.unset();  // Prevent user from supplying their own value
       }
     }
+  },
+  photoURL:{
+    type: String,
+    optional: true
   }
-
 });
 
 Posts.attachSchema(schema);

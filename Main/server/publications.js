@@ -9,3 +9,5 @@ Meteor.publish("posts", function(){
 Meteor.publish("comments", function(argument){
   return Comments.find();
 });
+
+Meteor.publish("images", function(){ return Images.find(); });
