@@ -48,7 +48,26 @@ var addMarkersToMap = function(jobs) {
       position: {lat: lat, lng: lng},
       map: Map
     });
+
+    var post = Posts.find({_id:job.postId}).fetch()["0"];
+    console.log(post);
+    var imageurl = post.photoURL;
+    var img = '<img width="100%" src=/cfs/files/images/' + imageurl + '/images?store=images>';
+    var path = post._id;
     marker.addListener("click", function() {
+        var contentString = '<div class="valign-wrapper">'+
+            '<a href=/posts/'+path+'><h5 id="firstHeading" class="valign">'+ post.title +'</h5>' +
+            // '<div id="bodyContent">'+
+            img+'</a>'+
+            // '</div>'+
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString,
+            maxWidth: 200
+          });
+
+      infowindow.open(Map, marker);
       console.log("clicked on ", job);
     });
     Markers.push(marker);

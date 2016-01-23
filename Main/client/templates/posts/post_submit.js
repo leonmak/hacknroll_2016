@@ -115,10 +115,7 @@ Template.postSubmit.events({
 Template.postSubmit.events({
   'change .myFileInput': function(event, template) {
 
-
     FS.Utility.eachFile(event, function(file) {
-      // generate a new FileReader object
-
       Images.insert(file, function (err, fileObj) {
         if (err){
         } else {
