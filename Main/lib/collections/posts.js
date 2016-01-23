@@ -1,12 +1,6 @@
 Posts = new Mongo.Collection("posts");
 Posts.allow({
-  insert: function(userId, doc){
-    return true;
-  },
-  update: function(){
-    return true;
-  },
-  remove: function(){
-    return true;
-  }
+  insert: function(userId, doc){ return !! userId; },
+  update: function(userId, post) { return ownsDocument(userId, post); },
+  remove: function(userId, post) { return ownsDocument(userId, post); },
 });
