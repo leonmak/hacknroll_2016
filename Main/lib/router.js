@@ -11,25 +11,6 @@ Router.configure({
 
 Router.route("/", {
   name:"postList"
-  // template:"templateName",
-  // waitOn:function(){
-  //   subscriptions
-  // },
-  // data:function(){
-  //    dataFunction
-  // },
-  // onBeforeAction:function(){
-  //
-  // },
-  // onAfterAction:function(){
-  //
-  // },
-  // onRun:function(){
-  //
-  // },
-  // onReRun:function(){
-  //
-  // }
 });
 
 Router.route('/posts/:_id', {

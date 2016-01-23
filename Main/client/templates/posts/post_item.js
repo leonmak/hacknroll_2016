@@ -4,3 +4,12 @@ Template.postItem.helpers({
     return a.hostname;
   }
 })
+
+Template.postItem.helpers({
+  formattedDate: function(){
+    return moment(this.createdAt).format("DD MMM");
+  },
+  formattedDestroyDate: function(){
+    return moment(this.destroyDate).format("DD MMM");
+  }
+});

@@ -3,11 +3,11 @@ if (Meteor.isClient) {
 }
 var schema = new SimpleSchema({
   title: {
-    label: 'Title',
+    label: 'Item:',
     type: String
   },
   description: {
-    label: 'Description',
+    label: 'Description:',
     type: String
   },
   author: {

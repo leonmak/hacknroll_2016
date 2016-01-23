@@ -4,10 +4,12 @@
       <div class="card">
         <div class="card-image">
           <img src="http://placehold.it/350x150">
-          <span class="card-title">{{title}}</span>
+          <span class="card-title">{{title}} - {{author}}</span>
         </div>
         <div class="card-content">
-          {{description}}
+          {{description}} <br>
+          Created: {{formattedDate}} <br>
+          Expires: {{formattedDestroyDate}}
         </div>
         <div class="card-action">
         {{#if url}}  <a href="{{url}}">Link<i class="material-icons">launch</i></a> {{/if}}
