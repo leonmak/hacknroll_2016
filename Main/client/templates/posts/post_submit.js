@@ -25,6 +25,12 @@ AutoForm.hooks({
         doc.userId = Meteor.userId();
         return doc;
       }
+    },
+    after:{
+      insert: function(doc, template){
+        // console.log(this);
+        Router.go('postPage', {_id: this.docId});
+      }
     }
   }
 })

@@ -1,12 +1,11 @@
 <template name="postSubmit">
-  <h2>Add a hunt</h2>
+  <h2>Add a deal!</h2>
   {{#autoForm collection="Posts" id="insertPostsForm" type="insert"}}
   <fieldset>
-
     {{> afQuickField name='title'}}
     {{> afQuickField name='description' rows = 6}}
-    {{> afQuickField name='pricePerItem'}}
-    {{> afQuickField name='destroyDate' type="pickadate"}}
+    {{> afQuickField name='pricePerItem' icon="attach_money"}}
+    {{> afQuickField name='destroyDate' type="pickadate" icon="date_range"}}
     {{> afQuickField name='url' icon='http'}}
   </fieldset>
   <button type="submit" class="btn btn-primary">Insert</button>
