@@ -1,6 +1,20 @@
 <template name="postSubmit">
-  <h2>Sample Autoform</h2>
+  <h2>Add a hunt</h2>
+  {{#autoForm collection="Posts" id="insertPostsForm" type="insert"}}
+  <fieldset>
 
-{{> quickForm collection="Posts" id="insertBookForm" type="insert"}}
+    {{> afQuickField name='title'}}
+    {{> afQuickField name='description' rows = 6}}
+    {{> afQuickField name='pricePerItem'}}
+    {{> afQuickField name='destroyDate' type="pickadate"}}
+    <!-- {{> afQuickField name='url' icon='language'}} -->
+
+
+    <!-- {{> afQuickField name='summary' rows=6}} -->
+  </fieldset>
+  <button type="submit" class="btn btn-primary">Insert</button>
+{{/autoForm}}
+
+<!-- {{> quickForm collection="Posts" id="insertBookForm" type="insert"}} -->
 
 </template>

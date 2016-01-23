@@ -1,6 +1,6 @@
 Posts = new Mongo.Collection("posts");
 Posts.allow({
-  insert: function(){
+  insert: function(userId, doc){
     return true;
   },
   update: function(){

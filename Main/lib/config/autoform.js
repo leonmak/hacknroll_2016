@@ -3,29 +3,53 @@ if (Meteor.isClient) {
 }
 var schema = new SimpleSchema({
   title: {
-    // Labels are used to reffer to this field in validation
-    label: 'title',
-    // Specifying the allowed type
+    label: 'Title',
+    type: String
+  },
+  description: {
+    label: 'Description',
     type: String
   },
   author: {
     label: 'author',
     type: String
   },
-  publishDate: {
-    label: 'publish date',
+  destroyDate: {
+    label: 'Expires on:',
     type: Date,
-    // This is needed for the Materialize theme, more on this later
     autoform: {
       type: 'pickadate'
     }
   },
-  rating: {
+  pricePerItem: {
+    label: 'Price per item:',
     type: Number,
-    // We only want a rating from 0 to 10
     min: 0,
-    max: 10
-  }
+    max: 10000
+  },
+  url:{
+    label: 'URL',
+    type: String,
+    optional: true
+  },
+  location:{
+    label: 'Where it at?',
+    type: String,
+    optional: true
+  },
+  // createdAt: {
+  //   type: Date,
+  //   autoValue: function() {
+  //     if (this.isInsert) {
+  //       return new Date();
+  //     } else if (this.isUpsert) {
+  //       return {$setOnInsert: new Date()};
+  //     } else {
+  //       this.unset();  // Prevent user from supplying their own value
+  //     }
+  //   }
+  // }
+
 });
 
 Posts.attachSchema(schema);
