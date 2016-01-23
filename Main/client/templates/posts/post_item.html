@@ -10,7 +10,7 @@
           {{description}}
         </div>
         <div class="card-action">
-          <a href="{{url}}">{{url}}</a>
+        {{#if url}}  <a href="{{url}}">Link<i class="material-icons">launch</i></a> {{/if}}
           <a href="{{pathFor 'postPage'}}">Join Chat</a>
         </div>
       </div>
