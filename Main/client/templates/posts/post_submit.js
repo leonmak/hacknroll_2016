@@ -21,7 +21,8 @@ AutoForm.hooks({
       insert: function(doc, template) {
         //modify the document here
         console.log(doc);
-        doc.author = Meteor.userId();
+        doc.author = Meteor.user().username;
+        doc.userId = Meteor.userId();
         return doc;
       }
     }

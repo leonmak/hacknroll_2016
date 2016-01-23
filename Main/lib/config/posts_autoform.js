@@ -14,6 +14,9 @@ var schema = new SimpleSchema({
     label: 'author',
     type: String
   },
+  userId:{
+    type: String
+  },
   destroyDate: {
     label: 'Expires on:',
     type: Date,

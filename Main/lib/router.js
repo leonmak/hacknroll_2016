@@ -38,6 +38,16 @@ Router.route('/posts/:_id', {
 });
 
 
+AccountsTemplates.addFields([
+  {
+      _id: "username",
+      type: "text",
+      displayName: "username",
+      required: true,
+      minLength: 5,
+  }
+]);
+
 // Account Routes
 AccountsTemplates.configureRoute('changePwd');
 AccountsTemplates.configureRoute('enrollAccount');
