@@ -6,7 +6,9 @@ Router.configure({
     "footer": {to: "footer"}
   },
   loadingTemplate:"loadingTemplate", // shows if still waiting on subscription
-  waitOn: function(){ return Meteor.subscribe('posts'); }
+  waitOn: function(){
+    return [Meteor.subscribe('posts'), Meteor.subscribe('comments')];
+  }
 });
 
 Router.route("/", {
@@ -15,7 +17,9 @@ Router.route("/", {
 
 Router.route('/posts/:_id', {
   name: 'postPage',
-  data: function(){ return Posts.findOne(this.params._id); }
+  data: function(){
+    console.log(Posts.findOne(this.params._id));
+    return Posts.findOne(this.params._id); }
 });
 
 
