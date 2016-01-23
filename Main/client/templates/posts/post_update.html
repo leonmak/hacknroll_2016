@@ -1,3 +1,4 @@
 <template name="postEdit">
   {{> quickForm collection="Posts" doc=this id="updatePostForm" type="update"}}
+  {{#if ownPost}}<a class="waves-effect waves-light btn deletePost"><i class="material-icons left">delete</i>Delete this hunt!</a>{{/if}}
 </template>

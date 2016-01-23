@@ -12,8 +12,10 @@
           Expires: {{formattedDestroyDate}}
         </div>
         <div class="card-action">
-        {{#if url}}  <a href="{{url}}">Link<i class="material-icons">launch</i></a> {{/if}}
+          {{#if url}}  <a href="{{url}}">Link<i class="material-icons">launch</i></a> {{/if}}
           <a href="{{pathFor 'postPage'}}">Join Chat</a>
+          {{#if ownPost}}<a href="{{pathFor 'postEdit'}}">Edit</a>{{/if}}
+          {{#if ownPost}}<a class="deletePost">Delete<i class="material-icons ">delete</i></a>{{/if}}
         </div>
       </div>
     </div>
