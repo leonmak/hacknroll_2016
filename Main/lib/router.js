@@ -1,6 +1,6 @@
 Router.configure({
   layoutTemplate:"layout",
-  // notFoundTemplate:"notFoundTemplate",
+  notFoundTemplate:"notFoundTemplate",
   yieldRegions:{
     "header": {to: "header"},
     "footer": {to: "footer"}
@@ -49,3 +49,10 @@ var requireLogin = function() {
   }
 }
 Router.onBeforeAction(requireLogin, {only: 'postSubmit'});
+
+
+// update
+Router.route('/posts/:_id/edit', {
+  name: 'postEdit',
+  data: function() { return Posts.findOne(this.params._id); }
+});
