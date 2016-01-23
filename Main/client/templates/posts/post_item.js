@@ -16,9 +16,7 @@ Template.postItem.helpers({
     return this.userId === Meteor.userId();
   },
   image: function(){
-    var a = Images.find({_id:this.photoURL});
-console.log(a);
-return a;
+    return Images.find({_id:this.photoURL});;
   }
 });
 

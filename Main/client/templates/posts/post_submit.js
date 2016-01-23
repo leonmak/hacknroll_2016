@@ -20,7 +20,6 @@ AutoForm.hooks({
     before: {
       insert: function(doc, template) {
         //modify the document here
-        console.log(doc);
         doc.author = Meteor.user().username;
         doc.userId = Meteor.userId();
         doc.photoURL = Session.get("photoURL");
@@ -29,7 +28,6 @@ AutoForm.hooks({
     },
     after:{
       insert: function(doc, template){
-        // console.log(this);
         Session.set("photos", undefined);
         Router.go('postPage', {_id: this.docId});
       }
@@ -40,8 +38,15 @@ Template.postSubmit.helpers({
 photoURL: function(){
   var img = Session.get("photoURL") || Session.get("photos");
   if(img) {return Images.find({_id:img});}
+},
+box: function(){
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+
 }
 });
+
 
 Template.postSubmit.events({
   'click .photo': function () {
@@ -73,19 +78,18 @@ Template.postSubmit.events({
       quality: 50,
       buttonTexts: buttonTexts
     }
+    $(document).ready(function(){
+      $('.materialboxed').materialbox();
+    });
 
     MeteorCameraUI.getPicture(cameraOptions, function (error, data) {
       Session.set("photos", data);
-      $(document).ready(function(){
-        $('.materialboxed').materialbox();
-      });
+
 
       Images.insert(data, function(err, fileObj){
         if(err){
         } else {
-          console.log(fileObj);
           Session.set("photoURL", fileObj._id);
-          console.log(Session.get("photoURL"));
         }
       });
 
@@ -97,9 +101,7 @@ Template.postSubmit.events({
 
 Template.postSubmit.events({
   'change .myFileInput': function(event, template) {
-    $(document).ready(function(){
-      $('.materialboxed').materialbox();
-    });
+
 
     FS.Utility.eachFile(event, function(file) {
       // generate a new FileReader object
@@ -107,9 +109,7 @@ Template.postSubmit.events({
       Images.insert(file, function (err, fileObj) {
         if (err){
         } else {
-          console.log(fileObj);
           Session.set("photoURL", fileObj._id);
-          console.log(Session.get("photoURL"));
         };
       });
     });
