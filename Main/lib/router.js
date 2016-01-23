@@ -45,6 +45,17 @@ AccountsTemplates.configureRoute('verifyEmail');
 // insert routes
 Router.route('/submit', {
 name: 'postSubmit',
+// for google places autoform
+onBeforeAction: function() {
+  if (!GoogleMaps.loaded()) {
+    GoogleMaps.load({
+      key: Meteor.settings.public.google_maps_key,
+      libraries: "geometry,places"
+    });
+  }
+  this.next();
+}
+
 });
 
 var requireLogin = function() {
@@ -62,3 +73,17 @@ Router.route('/posts/:_id/edit', {
   name: 'postEdit',
   data: function() { return Posts.findOne(this.params._id); }
 });
+
+// maps
+Router.route("/explore",{
+  name: "explore",
+  onBeforeAction: function() {
+    if (!GoogleMaps.loaded()) {
+      GoogleMaps.load({
+        key: Meteor.settings.public.google_maps_key,
+        libraries: "geometry,places"
+      });
+    }
+    this.next();
+  }
+})

@@ -1,0 +1,26 @@
+<template name="explore">
+
+      {{#autoForm schema=searchSchema id="searchJob" type="normal"}}
+
+        {{#if googleMapsReady}}
+          {{> afQuickField name="location" type="googleplace" class="form-control" autocomplete="off"}}
+        {{/if}}
+
+
+        {{> afQuickField name="radius"}}
+
+
+        <button type="submit" class="btn btn-default">Search</button>
+
+      {{/autoForm}}
+
+        {{#each jobs}}
+          <div class="row">
+            <h4>Job Title: {{title}} | Address: {{location.fullAddress}}</h4>
+          </div>
+        {{/each}}
+
+        <div id="searchMapContainer"></div>
+
+
+</template>

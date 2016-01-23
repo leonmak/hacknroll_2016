@@ -34,3 +34,7 @@ cfs:standard-packages
 cfs:gridfs
 cfs:graphicsmagick
 materialize:materialize
+lukemadera:autoform-googleplace
+ejson
+reactive-var
+check

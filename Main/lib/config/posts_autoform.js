@@ -55,7 +55,32 @@ var schema = new SimpleSchema({
   photoURL:{
     type: String,
     optional: true
+  },
+  location: {
+    type: Schemas.Address,
+    autoform: {
+      label: false,
+      placeholder: "Address"
+    },
+    optional: true
   }
+
+//   location:{
+// label:"",
+//     type: String,
+//     autoform:{
+//       type: 'map',
+//       afFieldInput:{
+//         geolocation: true,
+//         searchBox: true,
+//         autolocate: true,
+//         zoom: 13,
+//         defaultLat: 1,
+//       	defaultLng: 1
+//       }
+//     },
+//     optional: true,
+//   }
 });
 
 Posts.attachSchema(schema);

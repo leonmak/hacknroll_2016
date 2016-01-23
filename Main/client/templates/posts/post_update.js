@@ -13,3 +13,13 @@ Template.postEdit.helpers({
     return this.userId === Meteor.userId();
   }
 });
+
+AutoForm.hooks({
+  updatePostForm: {
+    after:{
+      update: function(doc, template){
+        Router.go('postPage', {_id: this.docId});
+      }
+    }
+  }
+})

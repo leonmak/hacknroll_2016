@@ -24,6 +24,10 @@
     {{> afQuickField name='pricePerItem' icon="attach_money"}}
     {{> afQuickField name='destroyDate' type="pickadate" icon="date_range"}}
     {{> afQuickField name='url' icon='http'}}
+    {{#if googleMapsReady}}
+      {{> afQuickField name="location" type="googleplace" class="form-control" autocomplete="on"}}
+    {{/if}}    <!-- {{> afQuickField name="location"}} -->
+
   </fieldset>
   <button type="submit" class="btn btn-primary">Insert</button>
 {{/autoForm}}
