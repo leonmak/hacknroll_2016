@@ -4,7 +4,20 @@
   <div class="post-page page">
     {{> postItem}}
   </div>
-  {{> conversation commentableId=this._id}}
+  <!-- {{> conversation commentableId=this._id}} -->
+  <ul class="comments">
 
+    {{#if currentUser}}
+    {{> commentSubmit}}
+    {{else}}
+    <p>Log in to comment.</p>
+    {{/if}}
+    <br>
+<br>
+    {{#each comments}}
+    {{> commentItem}}
+    {{/each}}
+
+  </ul>
 
 </template>

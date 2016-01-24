@@ -87,3 +87,8 @@ Router.route("/explore",{
     this.next();
   }
 })
+
+// account page
+Router.route("/account", {
+  name: 'account'
+})

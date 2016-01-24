@@ -63,6 +63,9 @@ var schema = new SimpleSchema({
       placeholder: "Address"
     },
     optional: true
+  },
+  commentsCount: {
+    type: Number
   }
 
 //   location:{

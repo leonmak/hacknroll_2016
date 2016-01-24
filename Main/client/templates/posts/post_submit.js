@@ -29,6 +29,8 @@ AutoForm.hooks({
         doc.author = Meteor.user().username;
         doc.userId = Meteor.userId();
         doc.photoURL = Session.get("photoURL");
+        doc.commentsCount= 0;
+
         return doc;
       }
     },

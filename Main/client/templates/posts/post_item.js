@@ -17,6 +17,9 @@ Template.postItem.helpers({
   },
   image: function(){
     return Images.find({_id:this.photoURL});;
+  },
+  commentsCount: function() {
+    return Comments.find({postId: this._id}).count();
   }
 });
 

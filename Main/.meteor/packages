@@ -28,7 +28,6 @@ meteorstuff:materialize-modal
 gildaspk:autoform-materialize
 useraccounts:materialize
 momentjs:moment
-allandequeiroz:materialize-comments
 okland:camera-ui
 cfs:standard-packages
 cfs:gridfs
@@ -38,3 +37,5 @@ lukemadera:autoform-googleplace
 ejson
 reactive-var
 check
+afruth:chapp
+differential:event-hooks
