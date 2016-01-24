@@ -1,22 +1,31 @@
 <template name="postSubmit">
-  <h2>Add a deal!</h2>
-  {{#each photoURL}}
-  <div>
-    <img class="materialboxed" width="50%" src={{this.url}} />
+  <h2 class="center-align">Add a deal!</h2>
+  <img class="materialboxed" width="50%"  />
+  <div class="center-align">
+
+    {{#each photoURL}}
+    <div>
+      <img class="materialboxed" width="50%" src={{this.url}} />
+    </div>
+    {{/each}}
   </div>
-  {{box}}
-  {{/each}}
-  <div class="file-field input-field btn">
-      <span>Upload Photo</span>
-      <input type="file" class="myFileInput">
-
-  </div>
-  <!-- <div id="photoFileUpload">
-
-  </div> -->
-
-<a class="waves-effect waves-light btn photo"><i class="material-icons left">camera</i>Take a photo!</a>
+  <br>
 <br>
+  <div class="center-align">
+    <div class="file-field input-field btn center-align">
+      <i class="material-icons left">backup</i><span>Upload Photo</span>
+      <input type="file" class="myFileInput">
+    </div>
+  </div>
+
+  <br>
+  <br>
+<div class= "center-align">
+  <a class="waves-effect waves-light btn photo"><i class="center-align material-icons left">add_a_photo</i>Take a photo!</a>
+
+</div>
+  <br>
+  <br>
   {{#autoForm collection="Posts" id="insertPostsForm" type="insert"}}
   <fieldset>
     {{> afQuickField name='title'}}
@@ -25,13 +34,14 @@
     {{> afQuickField name='destroyDate' type="pickadate" icon="date_range"}}
     {{> afQuickField name='url' icon='http'}}
     {{#if googleMapsReady}}
-      {{> afQuickField name="location" type="googleplace" class="form-control" autocomplete="on"}}
+    {{> afQuickField name="location" type="googleplace" class="form-control" autocomplete="on"}}
     {{/if}}    <!-- {{> afQuickField name="location"}} -->
+    {{>afQuickField name="cat"}}
 
   </fieldset>
   <button type="submit" class="btn btn-primary">Insert</button>
-{{/autoForm}}
+  {{/autoForm}}
 
-<!-- {{> quickForm collection="Posts" id="insertBookForm" type="insert"}} -->
+  <!-- {{> quickForm collection="Posts" id="insertBookForm" type="insert"}} -->
 
 </template>

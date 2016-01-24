@@ -36,7 +36,7 @@ var schema = new SimpleSchema({
     optional: true
   },
   location:{
-    label: 'Where it at?',
+    label: 'Will become searchable in map',
     type: String,
     optional: true
   },
@@ -66,24 +66,20 @@ var schema = new SimpleSchema({
   },
   commentsCount: {
     type: Number
+  },
+  cat:{
+    label: "Category",
+    type: String,
+    allowedValues: ["Food & Drinks", "For Him", "For Her", "Tech & Gadgets"],
+    autoform: {
+        afFieldInput: {
+            type: 'select',
+            options: 'allowed',
+            firstOption: "(Optional categories)",
+        },
+    },
+    optional: true
   }
-
-//   location:{
-// label:"",
-//     type: String,
-//     autoform:{
-//       type: 'map',
-//       afFieldInput:{
-//         geolocation: true,
-//         searchBox: true,
-//         autolocate: true,
-//         zoom: 13,
-//         defaultLat: 1,
-//       	defaultLng: 1
-//       }
-//     },
-//     optional: true,
-//   }
 });
 
 Posts.attachSchema(schema);

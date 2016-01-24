@@ -97,3 +97,18 @@ Router.route("/account", {
 Router.route("/search", {
   name: 'searchBox'
 })
+
+
+// categories
+Router.route("/fnb", {
+  name: 'fnb'
+})
+Router.route("/forHim", {
+  name: 'forHim'
+})
+Router.route("/forHer", {
+  name: 'forHer'
+})
+Router.route("/tech", {
+  name: 'tech'
+})

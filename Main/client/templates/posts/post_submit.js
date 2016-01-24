@@ -24,8 +24,7 @@ AutoForm.hooks({
   insertPostsForm: {
     before: {
       insert: function(doc, template) {
-        job.location = doc.location;
-
+        if(doc.location) {job.location = doc.location;}
         doc.author = Meteor.user().username;
         doc.userId = Meteor.userId();
         doc.photoURL = Session.get("photoURL");
@@ -36,11 +35,9 @@ AutoForm.hooks({
     },
     after:{
       insert: function(doc, template){
-        //modify the document here
-
+        // both the id and location present
         job.postId = this.docId;
-        console.log(job);
-        Meteor.call('addJob', job);
+        if(job.location && job.postId) {Meteor.call('addJob', job);}
 
         Session.set("photos", undefined);
         Session.set("photoURL", undefined);
@@ -53,15 +50,13 @@ Template.postSubmit.helpers({
 photoURL: function(){
   var img = Session.get("photoURL") || Session.get("photos");
   if(img) {return Images.find({_id:img});}
-},
-box: function(){
-  $(document).ready(function(){
-    $('.materialboxed').materialbox();
-  });
-
 }
+
 });
 
+Template.postSubmit.onRendered = function(){
+  $('.materialboxed').materialbox();
+}
 
 Template.postSubmit.events({
   'click .photo': function () {
