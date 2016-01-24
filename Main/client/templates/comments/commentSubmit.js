@@ -14,12 +14,12 @@ Template.commentSubmit.helpers({
 Template.commentSubmit.events({
   'submit form': function(e, template) {
     e.preventDefault();
-
     var $body = $(e.target).find('[name=body]');
     var comment = {
       body: $body.val(),
       postId: template.data._id
     };
+    console.log($body);
 
     var errors = {};
     if (! comment.body) {
@@ -34,5 +34,12 @@ Template.commentSubmit.events({
         $body.val('');
       }
     });
+  },
+  'keypress form': function (e, template) {
+    console.log("ok");
+    if (e.which === 13) {
+      $('#form').submit();
+    }
   }
+
 });

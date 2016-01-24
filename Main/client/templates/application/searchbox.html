@@ -1,0 +1,34 @@
+<template name="searchBox">
+  {{> EasySearch.Input index=postsIndex }}
+  <ul>
+    {{#EasySearch.IfInputEmpty index=postsIndex }}
+      <div class="padded examples">For example "Drinks, Things.."</div>
+    {{else}}
+      {{#if resultsCount}}
+      <h4 class="valign">{{resultsCount}} results found.</h4>
+      {{/if}}
+    {{/EasySearch.IfInputEmpty}}
+
+    {{#EasySearch.Each index=postsIndex }}
+    {{>postItem}}
+    {{/EasySearch.Each}}
+
+    {{> EasySearch.Pagination index=postsIndex maxPages=10 }}
+    {{! > EasySearch.LoadMore index=postsIndex }}
+    {{#if showMore}}
+      {{> EasySearch.Input name="mini-index" index=postsIndex attributes=inputAttributes }}
+
+      <ul>
+        {{#EasySearch.Each name="mini-index" index=postsIndex }}
+          <li>{{name}}</li>
+        {{/EasySearch.Each}}
+      </ul>
+    {{/if}}
+
+<!--
+    {{#EasySearch.IfNoResults index=postsIndex}}
+    <div class="no-results">No results found!</div>
+    {{/EasySearch.IfNoResults}} -->
+
+  </ul>
+</template>

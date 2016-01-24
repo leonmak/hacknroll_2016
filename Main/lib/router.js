@@ -92,3 +92,8 @@ Router.route("/explore",{
 Router.route("/account", {
   name: 'account'
 })
+
+// search page
+Router.route("/search", {
+  name: 'searchBox'
+})
