@@ -1,17 +1,17 @@
 /* CSS declarations go here */
 fieldset {
-    border: 1px solid rgba(255, 255, 255, 0);
-    margin: 0 2px;
-    padding: 0.35em 0.625em 0.75em;
+  border: 1px solid rgba(255, 255, 255, 0);
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
 }
 
 .file-field .btn, .file-field .btn-large {
-    height: 2.4rem;
-    line-height: 2.4rem;
+  height: 2.4rem;
+  line-height: 2.4rem;
 }
 
 .input-field {
-     margin-top: 0rem;
+  margin-top: 0rem;
 }
 #searchMapContainer {
   position:relative;
@@ -22,4 +22,57 @@ fieldset {
 
 .medium-margin {
   margin-top: 50px;
+}
+.profile_pic
+{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin-top: 6px;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+a#at-nav-button {
+  color: white!important;
+}
+a#at-nav-button.btn {
+  margin: 0px ;
+  padding-top: 14px ;
+  height: 49px;
+}
+@media only screen and (min-width: 993px){
+  .row .col.push-l4 {
+    left: 16%;
+  }
+}
+@media only screen and (min-width: 993px){
+  .row .col.l4 {
+    width: 70%;
+  }
+}
+.at-oauth.center-align {
+  width: 90%;
+  padding-left: 10%;
+}
+.at-social-btn, .at-btn.submit {
+  min-width: 80%;
+}
+button#at-btn {
+  left: 10%;
+}
+h3 header{
+  text-align: center;
+}
+.signin{
+  margin: auto!important;
+  padding-top: 3px!important;
+  height: 39px!important;
+}
+li.dropdown1Hover {
+    height: 64px;
+    padding: 0px !important;
 }

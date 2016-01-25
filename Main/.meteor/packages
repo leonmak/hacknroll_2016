@@ -40,3 +40,7 @@ check
 afruth:chapp
 differential:event-hooks
 matteodem:easy-search
+accounts-facebook
+accounts-twitter
+accounts-google
+service-configuration

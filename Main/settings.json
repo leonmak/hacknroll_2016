@@ -1,6 +1,14 @@
-
 {
   "public": {
-    "google_maps_key": "AIzaSyB54HKliWz6rhJKBbhGcRHOTe4Jg0i-ti0"
+    "google_maps_key": "AIzaSyBZOb8LO1B5N1y9n9hWnBYqsEXn2go_Oa8"
+  },
+  "private": {
+    "fbappId": "469150039924420",
+    "fbsecret": "a6941efe97027fdf63406f8df3faddc9",
+    "twconsumerKey": "1kgOskuIDitaZFFjM528VdyDL",
+    "twsecret": "S5j85umWvF4IDM2skjjU27rXLxY7Gpe0KlkjfZKwvYlkUj14WD",
+    "ggclientId": "18851388606-vgflv0sgobrt4n20ftufhgjvbrv4oi46.apps.googleusercontent.com",
+    "ggsecret": "S6C5TyVb01bUUMemYCIinGAV",
+    "ggclient_email": "leonmakansheng@gmail.com"
   }
 }

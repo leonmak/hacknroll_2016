@@ -2,7 +2,9 @@ Template.postEdit.events({
   'click .deletePost': function(e) {
     e.preventDefault();
     if (confirm("Delete this post?")) {
-      var currentPostId = this._id; Posts.remove(currentPostId);
+      var currentPostId = this._id;
+      Posts.remove(currentPostId);
+      Jobs.remove({postId:currentPostId});
       Router.go('postList');
     }
   }

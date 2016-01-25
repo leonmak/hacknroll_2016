@@ -9,7 +9,7 @@ var createMap = function() {
   var options = {
     zoom: 13,
     streetViewControl: false,
-    scaleControl: true,
+    scaleControl: false,
     draggable: true,
     disableDefaultUI: true,
     disableDoubleClickZoom: true,
@@ -35,6 +35,8 @@ var addMarkersToMap = function(jobs) {
   Markers = [];
 
   var center = true;
+  var bounds = new google.maps.LatLngBounds(); var idx = 0;
+
   jobs.forEach(function(job) {
     var lat = job.location.lat;
     var lng = job.location.lng;
@@ -54,12 +56,11 @@ var addMarkersToMap = function(jobs) {
     var imageurl = post.photoURL;
     var img = '<img width="100%" src=/cfs/files/images/' + imageurl + '/images?store=images>';
     var path = post._id;
+
     marker.addListener("click", function() {
         var contentString = '<div class="valign-wrapper">'+
             '<a href=/posts/'+path+'><h5 id="firstHeading" class="valign">'+ post.title +'</h5>' +
-            // '<div id="bodyContent">'+
             img+'</a>'+
-            // '</div>'+
             '</div>';
 
         var infowindow = new google.maps.InfoWindow({
@@ -71,6 +72,7 @@ var addMarkersToMap = function(jobs) {
       console.log("clicked on ", job);
     });
     Markers.push(marker);
+    bounds.extend(Markers[idx].getPosition()); idx++;
   });
 };
 

@@ -22,7 +22,6 @@ Router.route('/posts/:_id', {
   }
 });
 
-
 AccountsTemplates.addFields([
   {
       _id: "username",

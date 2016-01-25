@@ -1,19 +1,3 @@
-// AutoForm.addHooks(["insertPostsForm"], {
-//   before: {
-//     // Replace `formType` with the form `type` attribute to which this hook applies
-//     insert: function(doc) {
-//       // Potentially alter the doc
-//       doc.author = Meteor.userId();
-//       return doc;
-//       // Then return it or pass it to this.result()
-//       //return doc; (synchronous)
-//       //return false; (synchronous, cancel)
-//       //this.result(doc); (asynchronous)
-//       //this.result(false); (asynchronous, cancel)
-//     }
-//   }
-//
-// });
 
 var job = {
   postId: "",
@@ -29,27 +13,35 @@ AutoForm.hooks({
         doc.userId = Meteor.userId();
         doc.photoURL = Session.get("photoURL");
         doc.commentsCount= 0;
-
         return doc;
       }
     },
     after:{
       insert: function(doc, template){
-        // both the id and location present
+        // add map marker if location field was filled
         job.postId = this.docId;
-        if(job.location && job.postId) {Meteor.call('addJob', job);}
-
         Session.set("photos", undefined);
         Session.set("photoURL", undefined);
-        Router.go('postPage', {_id: this.docId});
+console.log(job);
+        if(job.location) {
+          Router.go('postPage', {_id: this.docId});
+          Meteor.call('addJob', job);
+        }
       }
     }
   }
 })
+
+// display photos
+
 Template.postSubmit.helpers({
-photoURL: function(){
-  var img = Session.get("photoURL") || Session.get("photos");
-  if(img) {return Images.find({_id:img});}
+  photoURL: function(){
+    $(document).ready(function(){
+      $('.materialboxed').materialbox();
+    });
+
+    var img = Session.get("photoURL") || Session.get("photos");
+    if(img) {return Images.find({_id:img});}
 }
 
 });
@@ -57,6 +49,8 @@ photoURL: function(){
 Template.postSubmit.onRendered = function(){
   $('.materialboxed').materialbox();
 }
+
+// Photo
 
 Template.postSubmit.events({
   'click .photo': function () {
@@ -88,9 +82,6 @@ Template.postSubmit.events({
       quality: 50,
       buttonTexts: buttonTexts
     }
-    $(document).ready(function(){
-      $('.materialboxed').materialbox();
-    });
 
     MeteorCameraUI.getPicture(cameraOptions, function (error, data) {
       Session.set("photos", data);

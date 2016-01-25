@@ -2,6 +2,8 @@
   <h2 class="center-align">Add a deal!</h2>
   <img class="materialboxed" width="50%"  />
   <div class="center-align">
+    <br>
+    <br>
 
     {{#each photoURL}}
     <div>
@@ -9,21 +11,14 @@
     </div>
     {{/each}}
   </div>
-  <br>
-<br>
   <div class="center-align">
     <div class="file-field input-field btn center-align">
       <i class="material-icons left">backup</i><span>Upload Photo</span>
       <input type="file" class="myFileInput">
     </div>
+    &nbsp; OR &nbsp;
+    <a class="waves-effect waves-light btn photo"><i class="center-align material-icons left">add_a_photo</i>Take a photo!</a>
   </div>
-
-  <br>
-  <br>
-<div class= "center-align">
-  <a class="waves-effect waves-light btn photo"><i class="center-align material-icons left">add_a_photo</i>Take a photo!</a>
-
-</div>
   <br>
   <br>
   {{#autoForm collection="Posts" id="insertPostsForm" type="insert"}}
@@ -39,9 +34,11 @@
     {{>afQuickField name="cat"}}
 
   </fieldset>
-  <button type="submit" class="btn btn-primary">Insert</button>
+  <button type="submit" class="btn btn-primary center-align">Insert</button>
   {{/autoForm}}
 
   <!-- {{> quickForm collection="Posts" id="insertBookForm" type="insert"}} -->
-
+  <br>
+  <br>
+<br>
 </template>

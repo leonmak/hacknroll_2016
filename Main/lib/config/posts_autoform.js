@@ -35,11 +35,6 @@ var schema = new SimpleSchema({
     type: String,
     optional: true
   },
-  location:{
-    label: 'Will become searchable in map',
-    type: String,
-    optional: true
-  },
   createdAt: {
     type: Date,
     autoValue: function() {
