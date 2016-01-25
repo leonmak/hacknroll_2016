@@ -23,7 +23,7 @@ AutoForm.hooks({
         Session.set("photos", undefined);
         Session.set("photoURL", undefined);
 console.log(job);
-        if(job.location) {
+        if(job.location!== null) {
           Router.go('postPage', {_id: this.docId});
           Meteor.call('addJob', job);
         }
@@ -31,24 +31,6 @@ console.log(job);
     }
   }
 })
-
-// display photos
-
-Template.postSubmit.helpers({
-  photoURL: function(){
-    $(document).ready(function(){
-      $('.materialboxed').materialbox();
-    });
-
-    var img = Session.get("photoURL") || Session.get("photos");
-    if(img) {return Images.find({_id:img});}
-}
-
-});
-
-Template.postSubmit.onRendered = function(){
-  $('.materialboxed').materialbox();
-}
 
 // Photo
 

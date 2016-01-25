@@ -1,16 +1,9 @@
 <template name="postSubmit">
   <h2 class="center-align">Add a deal!</h2>
-  <img class="materialboxed" width="50%"  />
-  <div class="center-align">
     <br>
-    <br>
+{{> uploadedPhoto}}
 
-    {{#each photoURL}}
-    <div>
-      <img class="materialboxed" width="50%" src={{this.url}} />
-    </div>
-    {{/each}}
-  </div>
+  <br>
   <div class="center-align">
     <div class="file-field input-field btn center-align">
       <i class="material-icons left">backup</i><span>Upload Photo</span>
