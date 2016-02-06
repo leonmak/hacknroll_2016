@@ -109,6 +109,7 @@ oauth2@1.1.5
 observe-sequence@1.0.7
 okland:camera-ui@0.0.2
 ordered-dict@1.0.4
+ovcharik:favico@0.3.7
 peerlibrary:assert@0.2.5
 peerlibrary:base-component@0.10.0
 peerlibrary:blaze-components@0.13.0
