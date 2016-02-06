@@ -42,6 +42,5 @@ differential:event-hooks
 matteodem:easy-search
 accounts-facebook
 accounts-twitter
-accounts-google
 service-configuration
 ovcharik:favico

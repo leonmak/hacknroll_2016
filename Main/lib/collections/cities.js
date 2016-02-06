@@ -2,7 +2,8 @@ Schemas = {};
 
 Schemas.Address = new SimpleSchema({
   fullAddress: {
-    type: String
+    type: String,
+    optional: true
   },
   lat: {
     type: Number,
@@ -17,18 +18,22 @@ Schemas.Address = new SimpleSchema({
     blackbox: true
   },
   placeId: {
-    type: String
+    type: String,
+    optional: true
   },
   street: {
     type: String,
-    max: 100
+    max: 100,
+    optional: true
   },
-  // city: {
-  //   type: String,
-  //   max: 50
-  // },
+  city: {
+    type: String,
+    max: 50,
+    optional: true
+  },
   country: {
-    type: String
+    type: String,
+    optional: true
   }
 });
 

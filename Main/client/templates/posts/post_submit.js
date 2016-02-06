@@ -8,11 +8,13 @@ AutoForm.hooks({
   insertPostsForm: {
     before: {
       insert: function(doc, template) {
+
         if(doc.location) {job.location = doc.location;}
-        doc.author = Meteor.user().username;
+        doc.author = Meteor.user().profile.name;
         doc.userId = Meteor.userId();
         doc.photoURL = Session.get("photoURL");
         doc.commentsCount= 0;
+    // console.log(doc);
         return doc;
       }
     },
@@ -22,10 +24,12 @@ AutoForm.hooks({
         job.postId = this.docId;
         Session.set("photos", undefined);
         Session.set("photoURL", undefined);
-console.log(job);
-        if(job.location!== null) {
+// console.log(this);
+        if(job.postId !== null && job.location!== null) {
           Router.go('postPage', {_id: this.docId});
           Meteor.call('addJob', job);
+        }else{
+          Router.go('postSubmit');
         }
       }
     }
