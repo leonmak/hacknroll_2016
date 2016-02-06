@@ -22,6 +22,12 @@ Template.atNavButton.rendered = function(){
 
 Template.headerUserOptions.helpers({
   getImageUser: function () {
-    return Meteor.user().profile.picture;
+    if(Meteor.user().profile){
+      return Meteor.user().profile.picture;
+    } else {
+      var email = Meteor.user().emails[0].address;
+      var url = Gravatar.imageUrl(email);
+      return url;
+    }
   }
 });

@@ -1,9 +1,11 @@
 <template name="headerUserOptions">
 
   <li><a href="{{pathFor 'postSubmit'}}">Submit</a></li>
+
   <li class="dropdown1Hover" data-activates='dropdown1'><img class="profile_pic"  src="{{getImageUser}}" alt=".." ></li>
   <ul id='dropdown1' class='dropdown-content'>
     <li><a href="{{pathFor 'account'}}">Your Posts</a></li>
+    <li><a href="{{pathFor 'chats'}}">Messages</a></li>
     <li>{{> atNavButton }}</li>
   </ul>
 

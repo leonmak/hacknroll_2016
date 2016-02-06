@@ -44,3 +44,5 @@ accounts-facebook
 accounts-twitter
 service-configuration
 ovcharik:favico
+utilities:avatar
+jparker:gravatar

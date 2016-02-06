@@ -10,6 +10,14 @@ Meteor.publish("comments", function(argument){
   return Comments.find();
 });
 
+Meteor.publish("chats", function(argument){
+  return Chats.find();
+});
+
+Meteor.publish("allUserData", function(argument){
+  return Meteor.users.find({}, {fields: {'nested.things': 1}});
+});
+
 Meteor.publish("images", function(){ return Images.find(); });
 
 Meteor.publish("jobSearch", function(searchData) {

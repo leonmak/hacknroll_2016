@@ -7,7 +7,7 @@ Router.configure({
   },
   loadingTemplate:"loadingTemplate", // shows if still waiting on subscription
   waitOn: function(){
-    return [Meteor.subscribe('posts'), Meteor.subscribe('comments'),Meteor.subscribe('images')];
+    return [Meteor.subscribe('posts'), Meteor.subscribe('chats'), Meteor.subscribe('comments'),Meteor.subscribe('images')];
   }
 });
 
@@ -90,6 +90,11 @@ Router.route("/explore",{
 // account page
 Router.route("/account", {
   name: 'account'
+})
+
+// chats page
+Router.route("/messages", {
+  name: 'chats'
 })
 
 // search page
