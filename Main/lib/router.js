@@ -5,9 +5,9 @@ Router.configure({
     "header": {to: "header"},
     "footer": {to: "footer"}
   },
-  loadingTemplate:"loadingTemplate", // shows if still waiting on subscription
+  loadingTemplate:"loadingTemplate", // Spinner
   waitOn: function(){
-    return [Meteor.subscribe('posts'), Meteor.subscribe('chats'), Meteor.subscribe('comments'),Meteor.subscribe('images')];
+    return [Meteor.subscribe('posts'),Meteor.subscribe('allUserData'), Meteor.subscribe('chats'), Meteor.subscribe('comments'),Meteor.subscribe('images')];
   }
 });
 
@@ -43,18 +43,17 @@ AccountsTemplates.configureRoute('verifyEmail');
 
 // insert routes
 Router.route('/submit', {
-name: 'postSubmit',
-// for google places autoform
-onBeforeAction: function() {
-  if (!GoogleMaps.loaded()) {
-    GoogleMaps.load({
-      key: Meteor.settings.public.google_maps_key,
-      libraries: "geometry,places"
-    });
+  name: 'postSubmit',
+  // for google places autoform
+  onBeforeAction: function() {
+    if (!GoogleMaps.loaded()) {
+      GoogleMaps.load({
+        key: Meteor.settings.public.google_maps_key,
+        libraries: "geometry,places"
+      });
+    }
+    this.next();
   }
-  this.next();
-}
-
 });
 
 var requireLogin = function() {

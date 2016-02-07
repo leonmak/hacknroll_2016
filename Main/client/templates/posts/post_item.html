@@ -11,7 +11,7 @@
           <span class="card-title">{{title}} </span>
         </div>
         <div class="card-content">
-          <h4 class="truncate">{{description}} - {{commentsCount}} Replies<br> </h4>
+          <h4 class="truncate">{{description}} <h6>{{commentsCount}} Replies<br> </h6> </h4>
         </div>
         <div class="card-action">
           {{#if url}}  <a href="{{url}}">Link<i class="material-icons">launch</i></a> {{/if}}
@@ -26,8 +26,7 @@
       <div class="card-panel grey lighten-5 z-depth-1">
         <div class="row valign-wrapper">
           <div class="col s2 m2">
-            <!-- <img src="images/yuna.jpg" alt="" class="circle responsive-img">-->
-            {{> avatar user= userId shape="circle"}}
+            {{> avatar userId=userId shape="circle"}}
           </div>
           <div class="col s1 m1">
           </div>
@@ -40,7 +39,7 @@
         </div>
         <div class="row">
           <div class="valign col s12 m12">
-            <a class="waves-effect waves-light btn"><i class="material-icons left">chat</i>Chat with {{author}}</a>
+            <a class="waves-effect waves-light btn"><i class="material-icons left">chat</i>Message {{author}}</a>
           </div>
         </div>
     </div>

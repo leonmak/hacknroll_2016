@@ -14,8 +14,13 @@ Meteor.publish("chats", function(argument){
   return Chats.find();
 });
 
+// Meteor.publish('userData', function () { return Meteor.users.find({}, {fields: {profile: 1}}); });
 Meteor.publish("allUserData", function(argument){
-  return Meteor.users.find({}, {fields: {'nested.things': 1}});
+  var res = Meteor.users.find({}, {fields: {profile:1}});
+//
+// console.log(res.fetch());
+return res;
+
 });
 
 Meteor.publish("images", function(){ return Images.find(); });

@@ -14,14 +14,16 @@
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
+        <li class="collection-item active"><img class="profile_pic" src="{{getImageUser}}"> <span class="text-darken-2">{{name}}</span></li>
+        <li><a  href="{{pathFor 'explore'}}">Map</a></li>
+        <li><a  href="{{pathFor 'searchBox'}}">Search</a></li>
+
         {{#if currentUser}}
-        <li><img class="profile_pic" src="{{getImageUser}}"></li>
         <li><a href="{{pathFor 'postSubmit'}}">Submit</a></li>
         <li><a href="{{pathFor 'account'}}">Your Posts</a></li>
+        <li><a href="{{pathFor 'chats'}}">Messages</a></li>
         <li>{{> atNavButton }}</li>
         {{/if}}
-        <li><a  href="{{pathFor 'explore'}}">Explore</a></li>
-        <li><a  href="{{pathFor 'searchBox'}}">Search</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>

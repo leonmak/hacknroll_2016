@@ -42,6 +42,9 @@ Accounts.onCreateUser(function(options, user) {
     }
     user.profile = options.profile;
   }
+  if(!options.profile){
+    user.profile = {gravUrl: Gravatar.imageUrl(options.email)};
+  }
   console.log(options);
   console.log(user);
 
