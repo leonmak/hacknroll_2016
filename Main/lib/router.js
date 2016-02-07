@@ -7,7 +7,7 @@ Router.configure({
   },
   loadingTemplate:"loadingTemplate", // Spinner
   waitOn: function(){
-    return [Meteor.subscribe('posts'),Meteor.subscribe('allUserData'), Meteor.subscribe('chats'), Meteor.subscribe('comments'),Meteor.subscribe('images')];
+    return [Meteor.subscribe('posts'), Meteor.subscribe('chats'), Meteor.subscribe('comments'),Meteor.subscribe('images')];
   }
 });
 
@@ -64,6 +64,8 @@ var requireLogin = function() {
   }
 }
 Router.onBeforeAction(requireLogin, {only: 'postSubmit'});
+Router.onBeforeAction(requireLogin, {only: 'chats'});
+Router.onBeforeAction(requireLogin, {only: 'account'});
 
 
 // update
@@ -93,7 +95,10 @@ Router.route("/account", {
 
 // chats page
 Router.route("/messages", {
-  name: 'chats'
+  name: 'chats',
+  waitOn: function(){
+    Meteor.subscribe('allUserData');
+  }
 })
 
 // search page

@@ -4,14 +4,16 @@ Template.header.rendered = function () {
 
 Template.header.helpers({
   getImageUser: function () {
-    if(Meteor.user().profile.picture){
-      return Meteor.user().profile.picture;
+    var curUser = Meteor.user();
+    if(curUser.profile.picture){
+      return curUser.profile.picture;
     } else {
-      var res =  Meteor.user().profile.gravUrl;
+      var res =  curUser.profile.gravUrl;
       return res;
     }
   },
-  name: function(){
-    return Meteor.user().username || Meteor.user().profile.name;
+  getName: function(){
+    var curUser = Meteor.user();
+    return curUser.username || curUser.profile.name;
   }
 });

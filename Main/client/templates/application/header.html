@@ -14,7 +14,10 @@
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-        <li class="collection-item active"><img class="profile_pic" src="{{getImageUser}}"> <span class="text-darken-2">{{name}}</span></li>
+        <!-- Must put if currentUser for Meteor.user() functions like getName and getImageUser -->
+        {{#if currentUser}}
+        <li class="collection-item active"><img class="profile_pic" src="{{getImageUser}}"> <span class="text-darken-2">{{getName}}</span></li>
+        {{/if}}
         <li><a  href="{{pathFor 'explore'}}">Map</a></li>
         <li><a  href="{{pathFor 'searchBox'}}">Search</a></li>
 

@@ -16,10 +16,7 @@ Meteor.publish("chats", function(argument){
 
 // Meteor.publish('userData', function () { return Meteor.users.find({}, {fields: {profile: 1}}); });
 Meteor.publish("allUserData", function(argument){
-  var res = Meteor.users.find({}, {fields: {profile:1}});
-//
-// console.log(res.fetch());
-return res;
+  return Meteor.users.find({}, {fields: {profile: 1}});
 
 });
 

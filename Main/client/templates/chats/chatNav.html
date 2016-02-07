@@ -1,0 +1,14 @@
+<template name="chatNav">
+  <!-- <li class="collection-item avatar"> -->
+
+    <li class="collection-item chatNav  {{#if activeChat}} active  {{/if}}">
+
+    <!-- <img src="" alt="" class="circle"> -->
+    <strong class="truncate top-slim">{{getOtherParty}}</strong>
+    <p class="truncate top-slim">{{getPostTitle}}</p>
+    <p class="truncate teal-text {{#if activeChat}} text-lighten-4 {{/if}} btm-slim">
+      {{getPostDes}}
+    </p>
+    <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+  </li>
+</template>

@@ -2,12 +2,13 @@
     <div class="col s12 m8">
       <div class="card">
         <div class="card-image">
-            {{#if image.count}}
-            {{#each image}}<img src="{{this.url}}">    {{/each}}
-            {{else}}
-            <img src="http://placehold.it/350x150">
-            {{/if}}
-
+            <a href="{{pathFor 'postPage'}}">
+              {{#if image.count}}
+              {{#each image}}<img src="{{this.url}}">    {{/each}}
+              {{else}}
+              <img src="http://placehold.it/350x150">
+              {{/if}}
+            </a>
           <span class="card-title">{{title}} </span>
         </div>
         <div class="card-content">
@@ -38,8 +39,8 @@
             </div>
         </div>
         <div class="row">
-          <div class="valign col s12 m12">
-            <a class="waves-effect waves-light btn"><i class="material-icons left">chat</i>Message {{author}}</a>
+          <div class="chat col s12 m12">
+            <a class="fwidth waves-effect waves-light btn" ><i class="material-icons left">chat</i>Message {{author}}</a>
           </div>
         </div>
     </div>

@@ -82,3 +82,23 @@ li.dropdown1Hover {
 .section.no-pad-bot {
   min-height: 600px;
 }
+
+
+a.fwidth {
+    min-width: 100%;
+    margin-bottom: -20px;
+}
+p.top-slim {
+    margin-top: 5px;
+    margin-bottom: -10px;
+}
+p.btm-slim {
+    margin-bottom: 5px;
+}
+
+.sendMsg {
+    margin-top: 8px;
+}
+.card.col.s8.m8 {
+    padding-right: 18px;
+}

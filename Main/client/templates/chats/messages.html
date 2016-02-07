@@ -1,0 +1,19 @@
+
+<template name="input">
+<div class="row">
+  <div class="col s10 m10 input-field">
+    <input placeholder="Send message" type="text" id="message">
+  </div>
+  <div class="col s2 m2 btn sendMsg">
+    <span>Send</span>
+  </div>
+
+</div>
+
+</template>
+
+<template name="messages">
+  {{#each msgs}}
+    <strong>{{name}}</strong>  <small class="grey-text text-lighten-1">{{date}}:</small> {{text}}<br>
+  {{/each}}
+</template>
